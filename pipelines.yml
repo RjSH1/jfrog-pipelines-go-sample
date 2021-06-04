@@ -52,3 +52,13 @@ pipelines:
             - name: publish_go_binary
           outputResources:
             - name: go_buildinfo
+      
+      - name: goPublishModuleStep
+        type: GoPublishModule
+        configuration:
+          version: "v0.0.0"
+          targetRepository: go-local
+          inputResources:
+            - name: myGithub
+          integrations:
+            - name: myArtifactory
