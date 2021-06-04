@@ -1,0 +1,68 @@
+resources:
+  # Sample Go app in a GitRepo
+  - name: cicd_go_backend_gitrepo
+    type: GitRepo
+    configuration:
+      path: tsuyo-cicd/go-backend
+      branches:
+        include: master
+      gitProvider: tsuyo_github
+       
+  # BuildInfo for the published Go module
+  - name: cicd_go_backend_buildinfo_module
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: myArtifactory
+      buildName: cicd_go_backend_module # ignored see https://www.jfrog.com/jira/browse/PIPE-2387
+      buildNumber: 1                    # ignored see https://www.jfrog.com/jira/browse/PIPE-2387
+       
+  # BuildInfo for the published Go app
+  - name: cicd_go_backend_buildinfo
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: myArtifactory
+      buildName: cicd_go_backend # ignored see https://www.jfrog.com/jira/browse/PIPE-2387
+      buildNumber: 1             # ignored see https://www.jfrog.com/jira/browse/PIPE-2387
+
+  # BuildInfo for the scanned Go app
+  - name: cicd_go_backend_buildinfo_scanned
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: myArtifactory
+      buildName: cicd_go_backend_scanned # ignored see https://www.jfrog.com/jira/browse/PIPE-2387
+      buildNumber: 1                     # ignored see https://www.jfrog.com/jira/browse/PIPE-2387
+
+  # BuildInfo for the scanned Go app
+  - name: cicd_go_backend_buildinfo_promoted
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: myArtifactory
+      buildName: cicd_go_backend_promoted # ignored see https://www.jfrog.com/jira/browse/PIPE-2387
+      buildNumber: 1                      # ignored see https://www.jfrog.com/jira/browse/PIPE-2387
+
+  # Merged from docker-build
+  - name: cicd_docker_build_gitrepo
+    type: GitRepo
+    configuration:
+      gitProvider: tsuyo_github
+      path: tsuyo-cicd/docker-build # Replace with your Git repo  
+
+  - name: cicd_docker_build_buildinfo_go_backend
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: myArtifactory
+      buildName: cicd_docker_build_buildinfo_go_backend # ignored see https://www.jfrog.com/jira/browse/PIPE-2387
+      buildNumber: 1                                    # ignored see https://www.jfrog.com/jira/browse/PIPE-2387
+  
+  # - name: cicd_docker_build_buildinfo_js_frontend
+  #   type: BuildInfo
+  #   configuration:
+  #     sourceArtifactory: myArtifactory
+  #     buildName: cicd_docker_build_buildinfo_js_frontend # ignored see https://www.jfrog.com/jira/browse/PIPE-2387
+  #     buildNumber: 1                                     # ignored see https://www.jfrog.com/jira/browse/PIPE-2387
+
+  - name: cicd_docker_build_filespec_go_backend
+    type: FileSpec
+    configuration:
+      sourceArtifactory: myArtifactory
+      pattern: 'cicd-generic/go_backend'
