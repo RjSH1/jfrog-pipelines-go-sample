@@ -57,8 +57,8 @@ pipelines:
         type: GoPublishModule
         configuration:
           version: "v0.0.0"
-          targetRepository: go_repo
+          targetRepository: go-local
           inputResources:
-            - name: myGithub
+            - name: go_repo
           integrations:
             - name: {{ .Values.artifactory }}
