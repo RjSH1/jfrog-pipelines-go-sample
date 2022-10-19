@@ -28,7 +28,7 @@ pipelines:
         configuration:
           sourceLocation: .
           resolverRepo: sam-go-virtual
-          #noRegistry: true
+          noRegistry: true
           inputResources:
             - name: go_repo
           integrations:
