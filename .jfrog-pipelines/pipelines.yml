@@ -53,12 +53,12 @@ pipelines:
           outputResources:
             - name: go_buildinfo
       
-      - name: goPublishModuleStep
-        type: GoPublishModule
-        configuration:
-          version: "v0.0.0"
-          targetRepository: acme-go-local
-          inputResources:
-            - name: go_repo
-          integrations:
-            - name: {{ .Values.artifactory }}
+      #- name: goPublishModuleStep
+       # type: GoPublishModule
+        #configuration:
+         # version: "v0.0.0"
+          #targetRepository: acme-go-local
+          #inputResources:
+           # - name: go_repo
+          #integrations:
+           # - name: {{ .Values.artifactory }}
